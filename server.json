@@ -3,31 +3,26 @@
     {
       "id": 1,
       "title": "Apresentação Cliente XPTO",
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>",
-      "typePostId": 1,
-      "documentId": 1
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>"
     },
     {
       "id": 2,
-      "title": "Apresentação Cliente XPTO",
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>",
-      "typePostId": 2,
-      "documentId": 1
+      "title": "Apresentação Cliente Monkeypress",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>"
     },
     {
       "id": 3,
-      "title": "Apresentação Cliente XPTO",
-      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>",
-      "typePostId": 4,
-      "documentId": 1
+      "title": "Apresentação Preview",
+      "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vel incidunt asperiores possimus! Est in accusantium nobis, itaque impedit molestias eius ut dolorem cumque veniam. Accusantium animi harum tempora consectetur. </p><blockquote>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ea amet inventore corporis quae sed quisquam laborum dignissimos illum nam, quis consequuntur tempora officia sint quo ad, quasi fuga nostrum!</blockquote>"
     }
   ],
   "typePost": [
-    { "id": 1, "type": "Reunião" },
-    { "id": 2, "type": "Documento" },
-    { "id": 3, "type": "Página" },
-    { "id": 4, "type": "Tutorial" }
+    { "id": 1, "type": "Reunião", "postId": 1 },
+    { "id": 2, "type": "Documento", "postId": 2 },
+    { "id": 3, "type": "Página", "postId": 3 }
   ],
-  "documents": [{ "id": 1, "document_url": "http://googledocs.com/doc.docx" }],
+  "documents": [
+    { "id": 1, "document_url": "http://googledocs.com/doc.docx", "postId": 1 }
+  ],
   "profile": { "name": "Cristiano Castro" }
 }

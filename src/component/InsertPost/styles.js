@@ -17,6 +17,10 @@ export const FormInsertPost = styled.div`
     padding: 0.47rem 0.75rem;
     font-size: 15px;
   }
+  .text-write {
+    width: 100%;
+    height: 120px;
+  }
   select {
     width: 250px;
     margin-right: 15px;
