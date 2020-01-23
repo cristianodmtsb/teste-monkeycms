@@ -18,7 +18,8 @@ body{
 
 body,
 input,
-button {
+button, 
+textarea {
   font-size:14px;
   font-family: "Roboto", sans-serif;
 }

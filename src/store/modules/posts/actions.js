@@ -4,7 +4,6 @@ export function listPostRequest() {
   };
 }
 export function listPostSuccess(posts) {
-  console.log("posts actions", posts);
   return {
     type: "@posts/SUCCESS",
     posts
@@ -15,9 +14,10 @@ export function addPost(post) {
   return {
     type: "@posts/ADD",
     post: {
-      id: Math.random(),
+      id: Math.random() * 100,
       title: post.title,
-      content: post.content
+      content: post.content,
+      category: post.category
     }
   };
 }

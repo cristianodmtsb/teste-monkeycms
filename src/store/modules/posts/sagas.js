@@ -4,12 +4,19 @@ import api from "../../../services/api";
 
 import { listPostSuccess } from "./actions";
 
-function* listPosts(action) {
+function* listPosts() {
   const response = yield call(api.get, "/posts");
 
   yield put(listPostSuccess(response.data));
 }
 
-// function* addPost(action) {}
+function* showPost({ id }) {
+  const response = yield call(api.get, `/posts/${id}`);
 
-export default all([takeLatest("@posts/REQUEST", listPosts)]);
+  yield put(listPostSuccess(response.data));
+}
+
+export default all([
+  takeLatest("@posts/REQUEST", listPosts),
+  takeLatest("@post/SHOW_REQUEST", showPost)
+]);

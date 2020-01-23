@@ -1,10 +1,9 @@
 import produce from "immer";
 
 export default function posts(state = [], action) {
-  console.log(state);
   switch (action.type) {
     case "@posts/SUCCESS":
-      return [...state, action.posts];
+      return [...state, ...action.posts];
     case "@posts/ADD":
       return [...state, action.post];
 

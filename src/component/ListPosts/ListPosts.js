@@ -6,9 +6,15 @@ import { bindActionCreators } from "redux";
 
 import * as PostActions from "../../store/modules/posts/actions";
 
-import { TablePosts, ModalPost } from "./styles";
+import Modal from "../../component/Modal";
+import { TablePosts } from "./styles";
 
 class ListPosts extends Component {
+  state = {
+    singlePost: {},
+    modal: false
+  };
+
   async componentWillMount() {
     const { listPostRequest } = this.props;
     listPostRequest();
@@ -16,13 +22,14 @@ class ListPosts extends Component {
 
   renderPosts = () => {
     const { posts, deletePost } = this.props;
+
     return posts.map(post => (
       <tr key={post.id}>
         <th scope="row">{post.id}</th>
-        <td>Reunião</td>
+        <td>{post.category}</td>
         <td className="title-table">{post.title}</td>
         <td>
-          <button className="btn-see">
+          <button className="btn-see" onClick={() => this.showModal(post)}>
             <MdRemoveRedEye size={20} color="#fff" />
           </button>
           <button className="btn-edit">
@@ -36,11 +43,21 @@ class ListPosts extends Component {
     ));
   };
 
+  showModal(post) {
+    this.setState({
+      singlePost: post,
+      modal: true
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      singlePost: {},
+      modal: false
+    });
+  }
+
   render() {
-    const { posts, deletePost } = this.props;
-
-    console.log("posts from state", posts);
-
     return (
       <TablePosts>
         <h4>Últimos Posts</h4>
@@ -57,67 +74,19 @@ class ListPosts extends Component {
             <tbody>{this.renderPosts()}</tbody>
           </table>
         </div>
-        <ModalPost>
-          <div className="content-modal">
-            <h3>Apresentação De croqui sei la de que</h3>
-            <span>Reunião</span>
-            <div className="text">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-                vel incidunt asperiores possimus! Est in accusantium nobis,
-                itaque impedit molestias eius ut dolorem cumque veniam.
-                Accusantium animi harum tempora consectetur.
-              </p>
-              <blockquote>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                ea amet inventore corporis quae sed quisquam laborum dignissimos
-                illum nam, quis consequuntur tempora officia sint quo ad, quasi
-                fuga nostrum!
-              </blockquote>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-                vel incidunt asperiores possimus! Est in accusantium nobis,
-                itaque impedit molestias eius ut dolorem cumque veniam.
-                Accusantium animi harum tempora consectetur.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-                vel incidunt asperiores possimus! Est in accusantium nobis,
-                itaque impedit molestias eius ut dolorem cumque veniam.
-                Accusantium animi harum tempora consectetur.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-                vel incidunt asperiores possimus! Est in accusantium nobis,
-                itaque impedit molestias eius ut dolorem cumque veniam.
-                Accusantium animi harum tempora consectetur.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-                vel incidunt asperiores possimus! Est in accusantium nobis,
-                itaque impedit molestias eius ut dolorem cumque veniam.
-                Accusantium animi harum tempora consectetur.
-              </p>
-            </div>
-            <div className="docs">
-              <a href="/">Documento Qualquer</a>
-            </div>
-            <div className="footer-modal">
-              <button>Fechar</button>
-            </div>
-          </div>
-        </ModalPost>
+        <Modal
+          post={this.state.singlePost}
+          modal={this.state.modal}
+          closeModal={() => this.closeModal()}
+        />
       </TablePosts>
     );
   }
 }
 
-const mapStateToProps = state => {
-  const { posts } = state;
-  return {
-    posts: posts
-  };
-};
+const mapStateToProps = state => ({
+  posts: state.posts
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(PostActions, dispatch);

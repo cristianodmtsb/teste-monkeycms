@@ -9,7 +9,8 @@ import { FormInsertPost } from "./styles";
 class InsertPost extends Component {
   state = {
     title: "",
-    content: ""
+    content: "",
+    category: ""
   };
 
   handleAddPost = e => {
@@ -17,11 +18,12 @@ class InsertPost extends Component {
     const { addPost } = this.props;
     const post = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      category: this.state.category
     };
-    console.log("teste", post);
 
     addPost(post);
+    this.setState({ title: "", content: "" });
   };
 
   render() {
@@ -31,13 +33,17 @@ class InsertPost extends Component {
         <div className="form-post">
           <form action="post" onSubmit={e => this.handleAddPost(e)}>
             <div className="group-one">
-              <select name="tipo" id="">
-                <option disabled defaultValue>
+              <select
+                name="category"
+                id=""
+                onChange={e => this.setState({ category: e.target.value })}
+              >
+                <option selected disabled value="">
                   Escolha Tipo
                 </option>
-                <option value="reuniao">Reunião</option>
+                <option value="Reunião">Reunião</option>
                 <option value="Documento">Documento</option>
-                <option value="tutorial">Tutorial</option>
+                <option value="Tutorial">Tutorial</option>
               </select>
 
               <input
