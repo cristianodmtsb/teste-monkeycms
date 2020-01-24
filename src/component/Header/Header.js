@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { logout } from "../../services/auth";
+
 import { Container, MetaInfos, UserInfos } from "./styles";
 import logo from "../../assets/img/logo.png";
 
@@ -27,7 +29,9 @@ export default function HeaderComponent() {
       <UserInfos>
         <img src="https://source.unsplash.com/35x35/?avatar" alt="Bill Gates" />
         Bill Gates
-        <Link to="/">Sair</Link>
+        <Link to="/" onClick={() => logout()}>
+          Sair
+        </Link>
       </UserInfos>
     </Container>
   );

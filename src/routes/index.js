@@ -12,7 +12,6 @@ export default function Routes() {
     <Switch>
       <Route path="/dashboard" exact component={Dashboard} isPrivate />
 
-      {/* redirect user to SignIn page if route does not exist and user is not authenticated */}
       <Route exact path="/" component={Login} />
       <Route path="/register" component={Register} />
     </Switch>
