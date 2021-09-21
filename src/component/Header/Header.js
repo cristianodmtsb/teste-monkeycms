@@ -14,7 +14,7 @@ export default function HeaderComponent() {
       </Link>
       <MetaInfos>
         <li>
-          15 <span>Páginas</span>
+          15 <span>Páginas 2</span>
         </li>
         <li>
           120 <span>Documentos</span>
